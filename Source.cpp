@@ -16,6 +16,7 @@ int main(){
 	int layer_nodes = 1;
 	int nodes_count = 0;
 	int size_count[10]; //for dfs count
+	//sample input
 	int num[40] = {1,3,5,1,6,9,13,15,23,2,4,-1,3,-5,-9,3,4,3,6,4,2,5,3,4,2,0,-1,3,1,7,10,-7,6,-3,6,5,-1,-2,3,4};
 	cout << "tree_nodes ";
 	cin >> tree_nodes;
@@ -37,7 +38,7 @@ int main(){
 		for (int j = 0; j < tree_nodes; j++){
 			if (flag <= arr_size){         //avoid the leaves set child node
 				arr[i - 1][4 + j] = flag;  //set the child
-				arr[flag-1][2] = i ;       //set the father  ·|©ìºC³t«×
+				arr[flag-1][2] = i ;       //set the father  æœƒæ‹–æ…¢é€Ÿåº¦
 				flag++;
 			}
 			else{
@@ -56,16 +57,16 @@ int main(){
 	/********                      DFS               ****************************/
 	int layer = final_layer;
 	int minimax_flag;
-	//** ¢Ò¢Ô¢á  / mini max
+	//** ï¼¤ï¼¦ï¼³  / mini max
 		cout << "DFS order" << endl;
 		int *current_order;
 		unvisited.push(&arr[0][0]);
 		while (!unvisited.empty()){  //DFS 
 			current_order = unvisited.top();
 			unvisited.pop();
-			if (arr[*current_order - 1][4] != NULL){ //¥Ñ©ó³]¥ß®É©ó1¶}©l¡A¦]¦¹»Ý´î1°t¦X¥¿½T¶¶¦ì  && ±±¨îDFS²`«×
+			if (arr[*current_order - 1][4] != NULL){ //ç”±æ–¼è¨­ç«‹æ™‚æ–¼1é–‹å§‹ï¼Œå› æ­¤éœ€æ¸›1é…åˆæ­£ç¢ºé †ä½  && æŽ§åˆ¶DFSæ·±åº¦
 				for (int i = 0; i < tree_nodes; i++){
-					unvisited.push(&arr[*current_order - 1][(4 + (tree_nodes - 1) - i)]);  //¥Ñ¥k¦Ü¥ª¶ñ¤Jchild order
+					unvisited.push(&arr[*current_order - 1][(4 + (tree_nodes - 1) - i)]);  //ç”±å³è‡³å·¦å¡«å…¥child order
 				}
 			}
 			cout << "current order : " << *current_order << endl;
